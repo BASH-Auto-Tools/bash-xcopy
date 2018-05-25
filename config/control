@@ -1,0 +1,11 @@
+Package: xcopy
+Version: 0.20151118
+Architecture: all
+Maintainer: zvezdochiot <zvezdochiot@users.sourceforge.net>
+Section: utils
+Priority: optional
+Installed-Size: 12
+Depends: coreutils, findutils, cpio
+Homepage: http://mykaralw.narod.ru/
+Description: Bash-script for xcopy.
+ Bash-script for copy dir as sort structure.
