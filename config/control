@@ -1,10 +1,10 @@
 Package: xcopy
-Version: 0.20180525-wheezy
+Version: 0.20180605-wheezy
 Architecture: all
 Maintainer: zvezdochiot <zvezdochiot@users.sourceforge.net>
 Section: utils
 Priority: optional
-Installed-Size: 24
+Installed-Size: 32
 Depends: coreutils, findutils, cpio
 Homepage: https://github.com/zvezdochiot/bash-xcopy
 Description: Bash-script for xcopy.

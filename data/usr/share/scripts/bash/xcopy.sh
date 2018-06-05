@@ -1,38 +1,25 @@
 #!/bin/sh
 
 #xcopy.sh
-#2018-05-25
+#Depends: coreutils, findutils, cpio
 
-echo "XCopy 0.20180525"
+sname="XCopy"
+sversion="0.20180605"
+
+echo "$sname $sversion"
 
 tnocomp=""
-tcomp="/bin/cpio"
-tdeb="cpio_*.deb"
-if [ ! -f "$tcomp" ]
-then
-    tnocomp="$tnocomp $tcomp($tdeb)"
-fi
-tcomp="/usr/bin/find"
-tdeb="findutils_*.deb"
-if [ ! -f "$tcomp" ]
-then
-    tnocomp="$tnocomp $tcomp($tdeb)"
-fi
-tcomp="/usr/bin/sort"
-tdeb="coreutils_*.deb"
-if [ ! -f "$tcomp" ]
-then
-    tnocomp="$tnocomp $tcomp($tdeb)"
-fi
-tcomp="/bin/ln"
-tdeb="coreutils_*.deb"
-if [ ! -f "$tcomp" ]
-then
-    tnocomp="$tnocomp $tcomp($tdeb)"
-fi
+tcomp="cpio"
+[ ! "$(command -v $tcomp)" ] && tnocomp="$tnocomp $tcomp"
+tcomp="find"
+[ ! "$(command -v $tcomp)" ] && tnocomp="$tnocomp $tcomp"
+tcomp="sort"
+[ ! "$(command -v $tcomp)" ] && tnocomp="$tnocomp $tcomp"
+tcomp="ln"
+[ ! "$(command -v $tcomp)" ] && tnocomp="$tnocomp $tcomp"
 if [ "x$tnocomp" != "x" ]
 then
-    echo "Not found $tnocomp !"
+    echo "Not found:${tnocomp}!"
     echo ""
     exit 1
 fi
@@ -55,9 +42,9 @@ do
     esac
 done
 shift "$(($OPTIND - 1))"
-tdir=`pwd`;
-srcdir="$1";
-dstdir="$2";
+tdir=$(pwd)
+srcdir="$1"
+dstdir="$2"
 
 if [ "x$srcdir" = "x" -o "x$dstdir" = "x" -o "x$fhlp" = "xtrue" ]
 then
